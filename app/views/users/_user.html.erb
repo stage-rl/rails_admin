@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to user.name, tenant_group_user_url(params[:tenant_id], params[:group_id] || @group.id, user.id) %>
+  </td>
+  <td><%= user.email%></td>
+  <td>
+    <%= link_to 'Edit this user', edit_tenant_group_user_url(params[:tenant_id], params[:group_id] || @group.id, user.id), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  </td>
+</tr>
