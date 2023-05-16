@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "rails_admin_dev",
+            "database": "rails_admin_dev",
+            "username": "govbox_pro"
+        }
+    ]
+}
