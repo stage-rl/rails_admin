@@ -90,12 +90,7 @@ Tabulka s groupami, kde nie je
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
-              <%= render Group.where(tenant_id: params[:tenant_id])
-                .where.not(
-                  id:
-                    Group.includes(:users)
-                      .where(users: {id: @user.id})
-                  ) , group_action: 'add'%>
+              <%= render @other_groups , group_action: 'add'%>
             </tbody>
           </table>
         </div>
