@@ -8,6 +8,12 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @other_groups = Group.where(tenant_id: params[:tenant_id])
+    .where.not(
+      id:
+        Group.includes(:users)
+          .where(users: {id: @user.id})
+      )
   end
 
   # GET /users/new
@@ -25,7 +31,7 @@ class UsersController < ApplicationController
     Group.find(params[:group_id]).users << @user
     respond_to do |format|
       if @user.save
-          format.html { redirect_to tenant_group_url(params.require(:tenant_id), params.require(:group_id)), notice: "User was successfully created." }
+          format.html { redirect_to tenant_group_url(params[:tenant_id], params[:group_id]), notice: "User was successfully created." }
           format.json { render :show, status: :created, location: @user }
         else
           format.html { render :new, status: :unprocessable_entity }

@@ -4,7 +4,7 @@
     when 'remove' %>
   <td><%= link_to 'Remove this group', edit_tenant_group_path(group.tenant_id, group), method: :post, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></td>
   <% when 'add' %>
-  <td><%= button_to 'Add this group', tenant_group_users_path(group.tenant_id, group), params: {user: @user},  class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></td>
+  <td><%= button_to 'Add this group', tenant_group_users_path(group.tenant_id, group), params: { user: @user}, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></td>
 <% else %>
   <td><%= link_to 'Edit this group', edit_tenant_group_path(group.tenant_id, group), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %></td>
 <% end %>
